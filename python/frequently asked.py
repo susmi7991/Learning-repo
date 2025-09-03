@@ -47,7 +47,34 @@ def is_strong_password(password):
     if not any(char in '!@#$%^&*()_+' for char in password):
         return False
     return True
-
-## calling the function
 print(is_strong_password("WeakPwd"))
 print(is_strong_password("Str0ngPwd!"))
+
+### temperature to ferhenheit
+def convert_temperature(temp,unit):
+    """This function converts temperature between Celsius and Fahrenheit"""
+    if unit=='C':
+        return temp * 9/5 + 32  ## Celsius To Fahrenheit
+    elif unit=="F":
+        return (temp-32)*5/9 ## Fahrenheit to celsius
+    else:
+        return None
+print(convert_temperature(25,'C'))
+print(convert_temperature(77,'F'))
+
+
+#### shopping cart values
+def calculate_total_cost(cart):
+    total_cost=0
+    for item in cart:
+        total_cost+=item['price']* item['quantity']
+
+    return total_cost
+cart=[
+    {'name':'Apple','price':0.5,'quantity':4},
+    {'name':'Banana','price':0.3,'quantity':6},
+    {'name':'Orange','price':0.7,'quantity':3}
+
+]
+total_cost=calculate_total_cost(cart)
+print(total_cost)
