@@ -73,7 +73,7 @@ print_details(1,2,3,4,"Sus",name="Sus",age="28",country="India")
 addition=lambda a,b:a+b  ## lambda itself is a definition of function
 even1=lambda num:num%2==0
 addition1=lambda x,y,z:x+y+z
-
+### Apply lambda to all items in list
 numbers=[1,2,3,4,5,6]
 lambda x:x**2 (square of x)
 lst_sq=list(map(lambda x:x**2,numbers)) ## map()- applies a function to all items in a list
@@ -87,4 +87,32 @@ for number in numbers:
     square=number**2
     list_sq=list_sq.append(square)
 #########
+### MAp multiple iterables
+numbers1=[1,2,3]
+numbers2=[4,5,6]
+added_numbers=list(map(lambda x,y:x+y,numbers1,numbers2))
+print(added_numbers)
+
+##Map
+words=['apple','banana','cherry']
+upper_word=list(map(str.upper,words))
+print(upper_word) ## ['APPLE', 'BANANA', 'CHERRY']
+
+
+## Filter with a lambda function and multiple conditions
+numbers=[1,2,3,4,5,6,7,8,9]
+even_and_greater_than_five=list(filter(lambda x:x>5 and x%2==0,numbers))
+print(even_and_greater_than_five) ### [6,8]
+
+
+## Filter() to check if the age is greate than 25 in dictionaries
+people=[
+    {'name':'Krish','age':32},
+    {'name':'Jack','age':33},
+    {'name':'John','age':25}
+]
+def age_greater_than_25(person):
+    return person['age']>25
+list(filter(age_greater_than_25,people))  ## [{'name':'Krish','age':32},{'name':'Jack','age':33}]
+
 
