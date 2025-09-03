@@ -1,38 +1,3 @@
-## Find even number
-even = [x for x in range(51) if x % 2 == 0]
-print("even_list:", even)
-## Find odd number
-odd = [x for x in range(51) if x % 2 != 0]
-print("odd_list:", odd)
-## find squares until 100
-squares= [x**2 for x in range (101)]
-print("squares:", squares)
-## Find cubes
-cubes= [x**3 for x in range (31)]
-print("cubes:", cubes)
-## Prime numbers
-prime=[]
-for num in range(1,101):
-    if num>1:
-        for i in range(2,num):
-            if num%i==0:
-                break
-        else:
-            prime.append(num)
-print("prime:",prime) 
-## fibonaci series
-num1=int(input("Emter starting numer 1"))
-num2=int(input("Emter starting numer 2"))
-fib=[]
-for i in range(11):
-    sum = num1 + num2
-    fib.append(sum)
-    num1 = num2
-    num2 = sum
-    if i==10:
-        break
-print("fibonacci series:", fib)
-
 #### list manipulation
 misc =["Hello",3,6,3,"five",3.14,8]
 misc.append("world")  # append adds at last
@@ -82,3 +47,22 @@ students={
 dict1={"a":1,"b":2}
 dict2={"b":3,"c":4}
 merged_dict={**dict1,**dict2}
+
+
+### Functions:
+def print_details(*args,**kwargs):
+    for val in args:
+        print(f" Positional arument :{val}")   
+    for key,value in kwargs.items():
+        print(f"{key}:{value}")
+
+print_details(1,2,3,4,"Sus",name="Sus",age="28",country="India")
+###Output
+#  Positional arument :1
+#  Positional arument :2
+#  Positional arument :3
+#  Positional arument :4
+#  Positional arument :Sus
+# name:Sus
+# age:28
+# country:India
