@@ -66,3 +66,25 @@ print_details(1,2,3,4,"Sus",name="Sus",age="28",country="India")
 # name:Sus
 # age:28
 # country:India
+
+
+
+## Lambda function
+addition=lambda a,b:a+b  ## lambda itself is a definition of function
+even1=lambda num:num%2==0
+addition1=lambda x,y,z:x+y+z
+
+numbers=[1,2,3,4,5,6]
+lambda x:x**2 (square of x)
+lst_sq=list(map(lambda x:x**2,numbers)) ## map()- applies a function to all items in a list
+
+or
+##########
+def square(number):
+    return number**
+lsit_sq=[]
+for number in numbers:
+    square=number**2
+    list_sq=list_sq.append(square)
+#########
+
