@@ -38,6 +38,8 @@ account.deposit(100)
 account.withdraw(300)
 print(account.get_balance())
 
+
+
 #Inheritance is a fundamental concept in Object-Oriented Programming (OOP) that
 #allows a class to inherit attributes and methods from another class. 
 
@@ -65,6 +67,37 @@ tesla1.selfdriving()
 ##Out: Tesla supports self driving : True
 
 
+
+############## Multiple Inheritance
+## When a class inherits from more than one base class.
+## Base class 1
+class Animal:
+    def __init__(self,name):
+        self.name=name
+
+    def speak(self):
+        print("Subclass must implement this method")
+
+## BAse class 2
+class Pet:
+    def __init__(self, owner):
+        self.owner = owner
+
+
+##Derived class
+class Dog(Animal,Pet):
+    def __init__(self,name,owner):
+        Animal.__init__(self,name)     ### Not using super() instead using animal bcz i have 2 classes here and particularly mention ing the class to refer to
+        Pet.__init__(self,owner)
+
+    def speak(self):
+        return f"{self.name} say woof"
+    
+
+## Create an object
+dog=Dog("Buddy","Krish")
+print(dog.speak())
+print(f"Owner:{dog.owner}")
 
 
 
