@@ -38,6 +38,32 @@ account.deposit(100)
 account.withdraw(300)
 print(account.get_balance())
 
+#Inheritance is a fundamental concept in Object-Oriented Programming (OOP) that
+#allows a class to inherit attributes and methods from another class. 
+
+## ## Parent class
+class Car:
+    def __init__(self,windows,doors,enginetype):
+        self.windows=windows
+        self.doors=doors
+        self.enginetype=enginetype
+    
+    def drive(self):
+        print(f"The person will drive the {self.enginetype} car ")
+### child class
+class Tesla(Car):     ## is supposed to call car class insider tesla and remeber all attributes
+    def __init__(self,windows,doors,enginetype,is_selfdriving):        ### add all attributes from parent class along with new attrinute
+        super().__init__(windows,doors,enginetype)         #### super() allows to bring the attributes which are required from parent class except self
+        self.is_selfdriving=is_selfdriving                 ### add one more attribute self_driving in self
+
+    def selfdriving(self):
+        print(f"Tesla supports self driving : {self.is_selfdriving}")
+
+tesla1=Tesla(4,5,"electric",True)
+tesla1.selfdriving()
+
+##Out: Tesla supports self driving : True
+
 
 
 
