@@ -132,3 +132,130 @@ car = Car()
 motorcycle = Motorcycle()
 
 start_vehicle(car)    ### output: Car enginer started
+
+
+
+
+
+########## Encapsulation
+# Encapsulation is the concept of wrapping data (variables) and methods (functions) together as a single unit.
+# It restricts direct access to some of the object's components, which is a means of preventing accidental interference
+# and misuse of the data.
+# public variable - Can be called outside the class.
+# private variable- Can not be called outside the class. its completely hidden... 
+# protected variabls - Can not be called outside the class but can be called from another derived class
+
+### Encapsulation  with Getter and Setter MEthods
+### Public,protected,private variables or access modifiers
+
+class Person:
+    def __init__(self,name,age):
+        self.name=name    ## public variables
+        self.age=age      ## public variables
+
+def get_name(person):
+    return person.name
+
+person=Person("Krish",34)
+get_name(person)
+
+## private
+class Person:
+    def __init__(self,name,age,gender):
+        self.__name=name    ## private variables
+        self.__age=age      ## private variables
+        self.gender=gender
+
+def get_name(person):
+    return person.__name
+
+person=Person("Krish",34,"Male")
+get_name(person)
+
+### protected
+class Person:
+    def __init__(self,name,age,gender):
+        self._name=name    ## protected variables
+        self._age=age      ## protected variables
+        self.gender=gender
+
+class Employee(Person):
+    def __init__(self,name,age,gender):
+        super().__init__(name,age,gender)
+
+
+employee=Employee("KRish",34,"Male")
+print(employee._name)
+
+
+## Getter method helps me to get any private variable
+## Setter method helps me to change any value, given to the private variable
+## Encapsulation With Getter And Setter
+class Person:
+    def __init__(self,name,age):
+        self.__name=name  ## Private access modifier or variable
+        self.__age=age ## Private variable
+
+    ## getter method for name
+    def get_name(self):
+        return self.__name
+    
+    ## setter method for name
+    def set_name(self,name):
+        self.__name=name
+
+    # Getter method for age
+    def get_age(self):
+        return self.__age
+    
+    # Setter method for age
+    def set_age(self, age):
+        if age > 0:
+            self.__age = age
+        else:
+            print("Age cannot be negative.")
+
+
+person=Person("Krish",34)
+
+## Access and modify private variables using getter and setter
+
+print(person.get_name())
+print(person.get_age())
+
+person.set_age(35)
+print(person.get_age())
+
+person.set_age(-5)
+    
+
+
+
+##### Abstraction
+# Abstraction is the concept of hiding the complex implementation details and showing only the 
+# necessary features of an object. This helps in reducing programming complexity and effort.
+
+from abc import ABC,abstractmethod
+
+## Abstract base cclass
+class Vehicle(ABC):
+    def drive(self):
+        print("The vehicle is used for driving")
+
+    @abstractmethod                     ##### Bsically abstract method is hiding all the methods defined inside the class except the function outside abstract
+    def start_engine(self):
+        pass
+
+class Car(Vehicle):                        ##### Derived class can inherit the parent class methods but not the methods of abstract method.    
+    def start_engine(self):                  #### To call the abstract methods we have to create another method in derived class
+        print("Car enginer started")
+
+def operate_vehicle(vehicle):
+    vehicle.start_engine()
+    vehicle.drive()
+
+car=Car()
+operate_vehicle(car)
+
+
+
