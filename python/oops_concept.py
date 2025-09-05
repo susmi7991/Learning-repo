@@ -234,7 +234,7 @@ person.set_age(-5)
 ##### Abstraction
 # Abstraction is the concept of hiding the complex implementation details and showing only the 
 # necessary features of an object. This helps in reducing programming complexity and effort.
-
+## To use abstrct  u have to import ABC
 from abc import ABC,abstractmethod
 
 ## Abstract base cclass
@@ -258,4 +258,37 @@ car=Car()
 operate_vehicle(car)
 
 
+#Magic Methods
+#Magic methods in Python, also known as dunder methods (double underscore methods), 
+#are special methods that start and end with double underscores. These methods enable you to define the behavior of objects for built-in operations, such as arithmetic operations, comparisons, and more.
+
+#Magic Methods
+#Magic methods are predefined methods in Python that you can override to change the behavior of your objects. 
+#Some common magic methods include:
+# if u define a class and call dir(class), u wl be able to see the predefined items or magic methods.
+# common magic methods:
+'''
+__init__': Initializes a new instance of a class.
+__str__: Returns a string representation of an object.
+__repr__: Returns an official string representation of an object.
+__len__: Returns the length of an object.
+__getitem__: Gets an item from a container.
+__setitem__: Sets an item in a container.
+'''
+## Basics MEthods
+class Person:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+    
+    def __str__(self):
+        return f"{self.name},{self.age} years old"
+    
+    def __repr__(self):
+        return f"Person(name={self.name},age={self.age})"
+    
+person=Person("KRish",34)
+print(person)
+print(repr(person))   # #output KRish,34 years old
+                      # #       Person(name=KRish,age=34)
 
