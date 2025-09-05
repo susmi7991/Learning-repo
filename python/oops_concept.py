@@ -292,3 +292,7 @@ print(person)
 print(repr(person))   # #output KRish,34 years old
                       # #       Person(name=KRish,age=34)
 
+
+###### Operator overloading
+# Operator overloading allows you to define the behavior of operators (+, -, *, etc.) for custom objects. 
+# You achieve this by overriding specific magic methods in your class.
