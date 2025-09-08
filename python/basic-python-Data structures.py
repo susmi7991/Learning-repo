@@ -130,3 +130,21 @@ file_path = 'example.txt'
 lines, words, characters = count_text_file(file_path)
 print(f'Lines: {lines}, Words: {words}, Characters: {characters}')
 
+
+'''
+file handling
+cwd -  current working directory  - os.getcwd()
+mkdir- create directory
+os.ispath - true/ false (if the path exists)
+os.path.isfile() checks if the file available
+'''
+
+'''
+connection of sql and python
+import sqlite3
+connection=sqlite3.connect('example.db')
+cursor=connection.cursor()
+cursor.execute(query)
+connection.commit()
+'''
+
